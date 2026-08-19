@@ -77,18 +77,24 @@ Kljucni problemi uoceni u podacima:
 |---|---|---|---|
 | Linear Regression | 2462.40 | 4219.01 | 0.6870 |
 | Decision Tree | 1476.66 | 3135.42 | 0.8271 |
-| **Random Forest** | **1123.44** | **2262.25** | **0.9100** |
+| **Random Forest** | **1156.79** | **2280.72** | **0.9085** |
 | Gradient Boosting | 1439.49 | 2573.85 | 0.8835 |
 
 ## Izabrani model
 
 Izabran je **Random Forest Regressor**, jer ima najnizi MAE (u prosjeku
-gresi za oko 1123$) i najvisi R2 (objasnjava 91% varijacije cijene).
+gresi za oko 1157$) i najvisi R2 (objasnjava skoro 91% varijacije cijene).
 Dodatna prednost u odnosu na Linear Regression je da ne predvidja
 negativne cijene, sto se desavalo kod linearnog modela.
 
-MAE od 1123$ znaci da model u prosjeku odstupa za oko 1123$ od stvarne
+MAE od 1157$ znaci da model u prosjeku odstupa za oko 1157$ od stvarne
 cijene automobila - sto je razumna greska s obzirom na to da cijena
 polovnih automobila zavisi i od faktora koje ovaj skup podataka ne
 sadrzi (stanje enterijera, istorija servisiranja, pregovaranje sa
 prodavcem, itd.)
+
+Napomena: dubina stabala u Random Forest modelu je ogranicena
+(max_depth=15) i model je sacuvan uz kompresiju, kako bi velicina
+fajla ostala ispod GitHub-ovog limita od 100MB. Ovo je blago smanjilo
+tacnost modela u odnosu na neogranicenu verziju (MAE 1123 -> 1157),
+ali je ucinilo model prakticnijim za deljenje i koriscenje.
